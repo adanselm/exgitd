@@ -8,6 +8,23 @@ defmodule Exgitd.GitController do
     unless String.ends_with?(repo_name, ".git"), do: repo_name = repo_name <> ".git"
     Path.join [pathroot, user, repo_name]
   end
+  defp make_path(user) do
+    pathroot = Application.get_env(:exgitd, :repositories_root)
+    Path.join [pathroot, user]
+  end
+
+  def index(conn, %{"user" => user}) do
+    full_path = make_path(user)
+    {:ok, list} = File.ls(full_path)
+    text = List.foldr(list, "", fn (x, acc) -> x <> "\n" <> acc end)
+    send_packet conn, "text/plain", text
+  end
+
+  def create(conn, %{"repo" => repo, "user" => user}) do
+    full_path = make_path(user, repo)
+    GitPort.create_bare(full_path)
+    send_packet conn, "text/plain", full_path
+  end
 
   def get_info_refs(conn, %{"service" => "git-receive-pack", "repo" => repo, "user" => user}) do
     packet = pkt_line("# service=git-receive-pack\n")

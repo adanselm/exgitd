@@ -1,5 +1,14 @@
 defmodule Exgitd.GitPort do
 
+  def create_bare(repoPath) do
+    command = "git init --bare " <> repoPath
+    Port.open({:spawn, command}, [:binary, :exit_status])
+    receive do
+      {'EXIT', _port, reason} -> raise RuntimeError, message: reason
+      {_port, {:exit_status, code}} -> code
+    end
+  end
+
   def receive_pack(repoPath) do
     advertise(repoPath, "git-receive-pack")
   end
