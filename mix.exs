@@ -3,13 +3,15 @@ defmodule Exgitd.Mixfile do
 
   def project do
     [ app: :exgitd,
-      version: "0.0.1",
-      elixir: "~> 1.0.0-rc1",
+      version: "0.0.2",
+      elixir: "~> 1.0",
       elixirc_paths: ["lib", "web"],
+     compilers: [:phoenix] ++ Mix.compilers,
       deps: deps ]
   end
 
   # Configuration for the OTP application
+  # Type `mix help compile.app` for more information
   def application do
     [
       mod: { Exgitd, [] },
@@ -17,15 +19,13 @@ defmodule Exgitd.Mixfile do
     ]
   end
 
-  # Returns the list of dependencies in the format:
-  # { :foobar, git: "https://github.com/elixir-lang/foobar.git", tag: "0.1" }
+  # Specifies your project dependencies
   #
-  # To specify particular versions, regardless of the tag, do:
-  # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
+  # Type `mix help deps` for examples and options
   defp deps do
     [
-      {:phoenix, "0.4.1"},
-      {:cowboy, "~> 1.0.0"}
+      {:phoenix, "0.5.0"},
+      {:cowboy, "~> 1.0"}
     ]
   end
 end

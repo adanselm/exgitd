@@ -28,15 +28,23 @@ Say I have a bare git repository in `/tmp/myuser/myrepo.git`
 ```bash
 $ # This will create a `myrepo` directory with a clone of the repo:
 
-$ git clone http://localhost:4000/myuser/myrepo.git
+$ git clone http://localhost:4000/git/myuser/myrepo.git
 
 $ # This pulls the changes from the master branch:
 
-$ git pull http://localhost:4000/myuser/myrepo.git master
+$ git pull http://localhost:4000/git/myuser/myrepo.git master
 
 $ # I made local changes that I commited, push them:
 
-$ git push http://localhost:4000/myuser/myrepo.git master
+$ git push http://localhost:4000/git/myuser/myrepo.git master
+```
+
+You can also list the available repositories of a given user with a GET request:
+
+```bash
+$ curl -X GET http://localhost:4000/git/myuser/
+myrepo.git
+myotherrepo.git
 ```
 
 ** If you're using it anywhere else than localhost, you should consider using https...**

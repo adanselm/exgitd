@@ -1,6 +1,7 @@
 defmodule Exgitd.GitController do
   use Phoenix.Controller
   alias Exgitd.GitPort
+  plug :action
 
   ## Create full repo path on server from username and repo name
   defp make_path(user, repo_name) do

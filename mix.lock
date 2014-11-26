@@ -1,7 +1,7 @@
-%{"cowboy": {:package, "1.0.0"},
-  "cowlib": {:package, "1.0.0"},
-  "linguist": {:package, "0.1.2"},
-  "phoenix": {:package, "0.4.1"},
-  "plug": {:package, "0.7.0"},
-  "poison": {:package, "1.1.1"},
-  "ranch": {:package, "1.0.0"}}
+%{"cowboy": {:hex, :cowboy, "1.0.0"},
+  "cowlib": {:hex, :cowlib, "1.0.0"},
+  "linguist": {:hex, :linguist, "0.1.4"},
+  "phoenix": {:hex, :phoenix, "0.5.0"},
+  "plug": {:hex, :plug, "0.8.2"},
+  "poison": {:hex, :poison, "1.2.0"},
+  "ranch": {:hex, :ranch, "1.0.0"}}

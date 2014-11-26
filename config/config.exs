@@ -1,24 +1,26 @@
 # This file is responsible for configuring your application
+# and its dependencies with the aid of the Mix.Config module.
+#
+# This configuration file is loaded before any dependency and
+# is restricted to this project.
 use Mix.Config
 
-# Note this file is loaded before any dependency and is restricted
-# to this project. If another project depends on this project, this
-# file won't be loaded nor affect the parent project.
-
+# Configures the router
 config :phoenix, Exgitd.Router,
-  port: System.get_env("PORT"),
-  ssl: false,
-  static_assets: true,
-  cookies: true,
-  session_key: "_exgitd_key",
-  session_secret: "HQ#FRQ#Q6T3H%#Y%!S14X63U2TOQ2^TQJ9*J6I(BG)!GJ_M34_%R8(3)H$Y!BI_V1=",
+  url: [host: "localhost"],
+  http: [port: System.get_env("PORT")],
+  https: false,
+  secret_key_base: "HQ#FRQ#Q6T3H%#Y%!S14X63U2TOQ2^TQJ9*J6I(BG)!GJ_M34_%R8(3)H$Y!BI_V1=",
   catch_errors: true,
   debug_errors: false,
   error_controller: Exgitd.PageController
 
-config :phoenix, :code_reloader,
-  enabled: false
+# Session configuration
+config :phoenix, Exgitd.Router,
+  session: [store: :cookie,
+            key: "_exgitd_key"]
 
+# Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]

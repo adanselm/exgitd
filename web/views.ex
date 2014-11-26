@@ -8,6 +8,7 @@ defmodule Exgitd.Views do
       # This block is expanded within all views for aliases, imports, etc
       import Exgitd.I18n
       import Exgitd.Router.Helpers
+      alias Phoenix.Controller.Flash
     end
   end
 
