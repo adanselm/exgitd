@@ -15,8 +15,6 @@ defmodule Exgitd.FileController do
   def store_file(conn, %{"user" => _user, "file" => file}) do
     root_path = make_path()
     %{:filename => filename, :path => path} = file
-    IO.inspect path
-    IO.inspect File.exists?(path)
     dest_path = Path.join [root_path, filename]
     case File.cp(path, dest_path, fn(_, _) -> false end) do
       :ok -> send_resp conn, 200, "OK"
