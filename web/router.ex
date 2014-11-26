@@ -1,15 +1,26 @@
 defmodule Exgitd.Router do
   use Phoenix.Router
 
+  pipeline :browser do
+    plug :accepts, ~w(html)
+    plug :fetch_session
+  end
+
+  pipeline :api do
+    plug :accepts, ~w(json)
+  end
+
   scope "/" do
     pipe_through :browser
 
     get "/", Exgitd.PageController, :index, as: :pages
   end
 
-  scope "git/:user" do
-    pipe_through :browser
+  scope "/file/:user" do
+    post "/", Exgitd.FileController, :store_file
+  end
 
+  scope "git/:user" do
     get "/", Exgitd.GitController, :index
 
     scope "/:repo" do

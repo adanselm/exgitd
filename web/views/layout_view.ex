@@ -1,4 +1,4 @@
 defmodule Exgitd.LayoutView do
-  use Exgitd.Views
+  use Exgitd.View
 
 end

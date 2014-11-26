@@ -1,4 +1,4 @@
 defmodule Exgitd.PageView do
-  use Exgitd.Views
+  use Exgitd.View
 
 end
