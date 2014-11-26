@@ -47,6 +47,14 @@ myrepo.git
 myotherrepo.git
 ```
 
+And upload a file through the /file/ route:
+
+```bash
+$ curl -F "file=@MyFile" http://localhost:4000/file/myuser
+```
+
+Which will put it by default in `:repositories_root/../files/`
+
 ** If you're using it anywhere else than localhost, you should consider using https...**
 
 ##TODO
