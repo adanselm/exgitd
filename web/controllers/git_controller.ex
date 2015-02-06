@@ -50,7 +50,7 @@ defmodule Exgitd.GitController do
   end
 
   def post_receive_pack(conn, %{"repo" => repo, "user" => user}) do
-    {:ok, data, _rest} = read_body(conn)
+    data = read_long_body(conn)
 
     packet = GitPort.post_receive_pack(make_path(user, repo), data)
 
@@ -59,7 +59,7 @@ defmodule Exgitd.GitController do
   end
 
   def post_upload_pack(conn, %{"repo" => repo, "user" => user}) do
-    {:ok, data, _rest} = read_body(conn)
+    data = read_long_body(conn)
 
     packet = GitPort.post_upload_pack(make_path(user, repo), data)
 
@@ -78,6 +78,15 @@ defmodule Exgitd.GitController do
     |> send_resp 200, data
   end
 
+  defp read_long_body(conn) do
+    read_long_body conn, ""
+  end
+  defp read_long_body(conn, acc) do
+    case read_body(conn) do
+      {:ok, data, _rest} -> acc <> data
+      {:more, partial, rest} -> read_long_body(rest, acc <> partial)
+    end
+  end
 
 end
 
