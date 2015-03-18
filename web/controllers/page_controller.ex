@@ -3,14 +3,14 @@ defmodule Exgitd.PageController do
   plug :action
 
   def index(conn, _params) do
-    render conn, "index.html"
+    conn |> render "index.html" |> halt
   end
 
   def not_found(conn, _params) do
-    render conn, "not_found.html"
+    conn |> render "not_found.html" |> halt
   end
 
   def error(conn, _params) do
-    render conn, "error.html"
+    conn |> render "error.html" |> halt
   end
 end

@@ -24,8 +24,9 @@ defmodule Exgitd.Mixfile do
   # Type `mix help deps` for examples and options
   defp deps do
     [
-      {:phoenix, "0.6.0"},
-      {:cowboy, "~> 1.0"}
+      {:phoenix, "0.7.1"},
+      {:cowboy, "~> 1.0"},
+      {:plug, github: "elixir-lang/plug", ref: "7040c89cb4cf1f1c6afdee379e5982a07d77a6c3"}
     ]
   end
 end

@@ -11,7 +11,7 @@ use Mix.Config
 # Where those two env variables point to a file on
 # disk for the key and cert.
 
-config :phoenix, MyApp.Router,
+config :exgitd, MyApp.Endpoint,
   url: [host: "example.com"],
   http: [port: System.get_env("PORT")],
   secret_key_base: "I4y2mtwIMgistgYT3u8ruU9yUwsopu6FHo9gex3gtorEKdMSuzjRfu0XownGjjQP7MWXtBx8sK1VP6IzhVzwtw=="

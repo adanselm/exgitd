@@ -6,7 +6,6 @@ defmodule Exgitd.View do
   using do
     quote do
       # Import common functionality
-      import Exgitd.I18n
       import Exgitd.Router.Helpers
 
       # Use Phoenix.HTML to import all HTML functions (forms, tags, etc)

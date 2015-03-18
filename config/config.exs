@@ -6,7 +6,7 @@
 use Mix.Config
 
 # Configures the router
-config :phoenix, Exgitd.Router,
+config :exgitd, Exgitd.Endpoint,
   url: [host: "localhost"],
   http: [port: System.get_env("PORT")],
   https: false,
@@ -20,7 +20,7 @@ config :phoenix, Exgitd.Router,
             length: 100_000_000]
 
 # Session configuration
-config :phoenix, Exgitd.Router,
+config :exgitd, Exgitd.Endpoint,
   session: [store: :cookie,
             key: "_exgitd_key"]
 
