@@ -2,7 +2,8 @@ defmodule Exgitd.Endpoint do
   use Phoenix.Endpoint, otp_app: :exgitd
 
   plug Plug.Static,
-    at: "/", from: :exgitd
+    at: "/", from: :exgitd,
+    only: ~w(files css images js favicon.ico robots.txt)
 
   plug Plug.Logger
 
