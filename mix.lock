@@ -1,7 +1,7 @@
 %{"cowboy": {:hex, :cowboy, "1.0.0"},
   "cowlib": {:hex, :cowlib, "1.0.1"},
   "linguist": {:hex, :linguist, "0.1.4"},
-  "phoenix": {:hex, :phoenix, "0.7.1"},
-  "plug": {:git, "git://github.com/elixir-lang/plug.git", "7040c89cb4cf1f1c6afdee379e5982a07d77a6c3", [ref: "7040c89cb4cf1f1c6afdee379e5982a07d77a6c3"]},
+  "phoenix": {:hex, :phoenix, "0.8.0"},
+  "plug": {:hex, :plug, "0.9.0"},
   "poison": {:hex, :poison, "1.3.1"},
   "ranch": {:hex, :ranch, "1.0.0"}}

@@ -8,7 +8,7 @@ defmodule Exgitd do
 
     children = [
       # Define workers and child supervisors to be supervised
-      # worker(TestApp.Worker, [arg1, arg2, arg3])
+      worker(Exgitd.Endpoint, [])
     ]
 
     opts = [strategy: :one_for_one, name: Exgitd.Supervisor]
